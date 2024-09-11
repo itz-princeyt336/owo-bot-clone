@@ -1,0 +1,47 @@
+const { EmbedBuilder, Colors } = require('discord.js');
+const User = require('../models/User'); // Ensure the correct path
+
+const animals = ['Wolf', 'Lion', 'Tiger', 'Bear', 'Eagle', 'Shark'];
+
+module.exports = {
+    name: 'autohunt',
+    description: 'Start automatic hunting for a fee!',
+    async execute(message, args) {
+        const userId = message.author.id;
+        const user = await User.findOne({ userId });
+
+        if (!user) {
+            return message.reply('You do not have an account.');
+        }
+
+        const amount = parseInt(args[0], 10);
+        if (isNaN(amount) || amount <= 200) {
+            return message.reply('You need to spend more than 200 coins to start auto-hunting.');
+        }
+
+        if (user.balance < amount) {
+            return message.reply('You do not have enough coins.');
+        }
+
+        user.balance -= amount;
+        await user.save();
+
+        const numberOfAnimals = Math.floor(Math.random() * 2) + 2; // 2 or 3 animals
+
+        let caughtAnimals = [];
+        for (let i = 0; i < numberOfAnimals; i++) {
+            caughtAnimals.push(animals[Math.floor(Math.random() * animals.length)]);
+        }
+
+        user.zoo = user.zoo || [];
+        user.zoo.push(...caughtAnimals);
+        await user.save();
+
+        const embed = new EmbedBuilder()
+            .setTitle(`${message.author.username} started auto-hunting!`)
+            .setDescription(`You spent ${amount} coins and caught: ${caughtAnimals.join(', ')}`)
+            .setColor(Colors.Green);
+
+        message.channel.send({ embeds: [embed] });
+    }
+};

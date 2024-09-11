@@ -1,0 +1,24 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot with various commands including GIF commands using Giphy API.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "discord.js": "^14.0.3",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^3.3.2",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "@vitalets/google-translate-api": "^8.0.0",
+    "mongoose": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
