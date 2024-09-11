@@ -9,7 +9,7 @@ This discord bot uses MongoDB for its databases.
 
 ## License
 
-The OwO Bot Clone is distributed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://github.com/itz-princeyt336/owo-bot-clone/blob/main/LICENSE) (CC BY-NC-SA 4.0). This license prohibits commercial use, meaning you cannot generate revenue from the software or use it in commercial endeavors, including receiving donations.
+OwO Bot Clone is distributed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://github.com/itz-princeyt336/owo-bot-clone/blob/main/LICENSE) (CC BY-NC-SA 4.0). This license prohibits commercial use, meaning you cannot generate revenue from the software or use it in commercial endeavors, including receiving donations.
 
 Under the CC BY-NC-SA 4.0 License, you are permitted to:
 
